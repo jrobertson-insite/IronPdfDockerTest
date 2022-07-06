@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Web.Mvc;
+using IronPdf;
+using IronPdf.Rendering;
 
 namespace IronPdfDockerTest.Controllers
 {
@@ -14,10 +16,12 @@ namespace IronPdfDockerTest.Controllers
             IronPdf.Installation.TempFolderPath = @"C:\temp";
             IronPdf.Installation.CustomDeploymentDirectory = @"C:\inetpub\wwwroot\bin";
 
-            var renderer = new IronPdf.ChromePdfRenderer();
+            var renderer = new IronPdf.HtmlToPdf(new PdfPrintOptions
+            {
+                RenderingEngine = PdfRenderingEngine.WebKit 
+            });
             using var pdf = renderer.RenderHtmlAsPdf("<h1>Hello World</h1>");
-            var path = Path.GetTempFileName().Replace(".tmp", ".pdf");
-            Console.WriteLine(path);
+            const string path = @"C:\inetpub\wwwroot\test.pdf";;
             pdf.SaveAs(path);
 
             return View();
