@@ -43,8 +43,8 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="IronPdf, Version=2022.5.0.5596, Culture=neutral, PublicKeyToken=94e1c31412563c75">
-          <HintPath>packages\IronPdf.Slim.2022.5.5596\lib\net40\IronPdf.dll</HintPath>
+        <Reference Include="IronPdf, Version=2021.12.0.4401, Culture=neutral, PublicKeyToken=94e1c31412563c75">
+          <HintPath>packages\IronPdf.Slim.2021.12.4401\lib\net40\IronPdf.dll</HintPath>
           <Private>True</Private>
         </Reference>
         <Reference Include="Microsoft.CSharp" />
@@ -133,7 +133,6 @@
         <Content Include="Content\bootstrap.css" />
         <Content Include="Content\bootstrap.min.css" />
         <Content Include="favicon.ico" />
-        <Content Include="fonts\glyphicons-halflings-regular.svg" />
         <Content Include="Global.asax" />
         <Content Include="Content\Site.css" />
         <Content Include="Scripts\bootstrap.js" />
@@ -165,14 +164,6 @@
         <Content Include="Views\Home\Index.cshtml" />
     </ItemGroup>
     <ItemGroup>
-        <Folder Include="App_Data" />
-        <Folder Include="Models" />
-    </ItemGroup>
-    <ItemGroup>
-        <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-        <Content Include="fonts\glyphicons-halflings-regular.woff" />
-        <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-        <Content Include="fonts\glyphicons-halflings-regular.eot" />
         <Content Include="Content\bootstrap.min.css.map" />
         <Content Include="Content\bootstrap.css.map" />
         <Content Include="Content\bootstrap-theme.min.css.map" />
@@ -180,6 +171,9 @@
         <None Include="packages.config" />
         <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
         <Content Include="Scripts\jquery-3.3.1.min.map" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="App_Log" />
     </ItemGroup>
     <PropertyGroup>
         <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -212,9 +206,13 @@
             <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them. For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
         </PropertyGroup>
         <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-        <Error Condition="!Exists('packages\IronPdf.Native.Chrome.Windows.2022.5.5590\build\net452\IronPdf.Native.Chrome.Windows.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\IronPdf.Native.Chrome.Windows.2022.5.5590\build\net452\IronPdf.Native.Chrome.Windows.targets'))" />
+        <Error Condition="!Exists('packages\IronPdf.Native.WebKit.Linux.2021.9.3626\build\net\IronPdf.Native.WebKit.Linux.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\IronPdf.Native.WebKit.Linux.2021.9.3626\build\net\IronPdf.Native.WebKit.Linux.targets'))" />
+        <Error Condition="!Exists('packages\IronPdf.Native.WebKit.MacOS.2021.9.3626\build\net45\IronPdf.Native.WebKit.MacOS.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\IronPdf.Native.WebKit.MacOS.2021.9.3626\build\net45\IronPdf.Native.WebKit.MacOS.targets'))" />
+        <Error Condition="!Exists('packages\IronPdf.Native.WebKit.Windows.2021.9.3626\build\net\IronPdf.Native.WebKit.Windows.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\IronPdf.Native.WebKit.Windows.2021.9.3626\build\net\IronPdf.Native.WebKit.Windows.targets'))" />
     </Target>
-    <Import Project="packages\IronPdf.Native.Chrome.Windows.2022.5.5590\build\net452\IronPdf.Native.Chrome.Windows.targets" Condition="Exists('packages\IronPdf.Native.Chrome.Windows.2022.5.5590\build\net452\IronPdf.Native.Chrome.Windows.targets')" />
+    <Import Project="packages\IronPdf.Native.WebKit.Linux.2021.9.3626\build\net\IronPdf.Native.WebKit.Linux.targets" Condition="Exists('packages\IronPdf.Native.WebKit.Linux.2021.9.3626\build\net\IronPdf.Native.WebKit.Linux.targets')" />
+    <Import Project="packages\IronPdf.Native.WebKit.MacOS.2021.9.3626\build\net45\IronPdf.Native.WebKit.MacOS.targets" Condition="Exists('packages\IronPdf.Native.WebKit.MacOS.2021.9.3626\build\net45\IronPdf.Native.WebKit.MacOS.targets')" />
+    <Import Project="packages\IronPdf.Native.WebKit.Windows.2021.9.3626\build\net\IronPdf.Native.WebKit.Windows.targets" Condition="Exists('packages\IronPdf.Native.WebKit.Windows.2021.9.3626\build\net\IronPdf.Native.WebKit.Windows.targets')" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
          Other similar extension points exist, see Microsoft.Common.targets.
     <Target Name="BeforeBuild">
