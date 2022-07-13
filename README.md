@@ -61,3 +61,19 @@ To learn how to solve this issue please read https://iron.helpscoutdocs.com/arti
 [2022-07-06 09:48:57] Attempting NuGet package 'IronPdf.Native.Chrome' deployment using 'IronPdf.Native.Chrome.Windows(2022.5.5590)'
 [2022-07-06 09:48:57] Downloading NuGet package from 'https://www.nuget.org/api/v2/package/IronPdf.Native.Chrome.Windows/2022.5.5590'
 ```
+
+
+Notes:
+Using Dependencies (https://github.com/lucasg/Dependencies) diagnosed dependencies of libcef.dll on local system vs container
+* ps> .\Dependencies.exe "C:\inetpub\wwwroot\bin\runtimes\win-x64\native\libcef.dll" -modules -depth 1
+* returned the following:
+```
+[NOT_FOUND] MF.dll :
+[NOT_FOUND] MFReadWrite.dll :
+[NOT_FOUND] MFPlat.DLL :
+[NOT_FOUND] dxva2.dll :
+[NOT_FOUND] bthprops.cpl :
+[NOT_FOUND] BluetoothApis.dll :
+```
+* Found references to first 4 being part of Media Feature pack (https://support.microsoft.com/en-us/topic/media-feature-pack-list-for-windows-n-editions-c1c6fffa-d052-8338-7a79-a4bb980a700a)
+* unable to grok install on container but found github example for extraction from base image (https://github.com/game-ci/docker/blob/163f9c2e99b90a5129b62bdaf3620c1b257c51e6/images/windows/base/Dockerfile)
